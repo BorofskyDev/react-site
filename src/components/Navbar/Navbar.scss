@@ -16,16 +16,27 @@
     align-items: center;
     font-weight: $fw-bold;
     letter-spacing: 0.1265em;
+
+    &--title {
+      color: $clr-light;
+      .logo__first {
+        color: $clr-primary;
+      }
+      .logo__second {
+        color: $clr-secondary;
+      }
+    }
   }
 
   &__icon {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
-    height: 3em;
-    width: 3em;
-    margin-right: 2em;
+    height: 2em;
+    width: 2em;
+    margin: 0.8em;
+    position: relative;
+    color: $clr-primary;
   }
 
   .menu__trigger {
@@ -101,21 +112,29 @@
     margin: auto;
     height: 100%;
     width: 100%;
-    background-color: $clr-primary;
+    background: rgba(255, 42, 109, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border-radius: 10px;
+    border: 1px solid $clr-secondary;
     z-index: -1;
   }
 
   &__nav {
     position: relative;
     width: 18.75em;
-    height: 100%;
-    background-color: $clr-secondary;
     padding-top: 3.125em;
-    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.75);
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background: rgba(1, 1, 30, 0.45);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(16.5px);
+    -webkit-backdrop-filter: blur(16.5px);
+    border-radius: 10px;
+    border: 1px solid $clr-primary;
     &::-webkit-scrollbar {
       width: 0;
     }
@@ -124,7 +143,7 @@
   &__top {
     overflow: hidden;
     display: flex;
-    height: calc(100% - 16.25em);
+    height: calc(100% - 12.25em);
   }
 
   &__links {
@@ -147,21 +166,82 @@
     &--section {
       color: $clr-light;
       text-shadow: 0 0 3px #000;
-      background-color: $clr-primary;
-      padding: 1em 3em;
-      border-radius: 1em;
-      box-shadow: 0 0 0.375em 0.1875em rgba(0, 0, 0, 0.8),
-        0 0 0.75em 0.0625em rgba(0, 0, 0, 0.4),
-        -0.1875em -0.1875em 0.75em 0.0625em rgba(255, 255, 255, 0.7) inset;
+      background-color: $clr-primary-dark;
+      padding: 0.3em 3em;
+      border-radius: 1em 0 0 1em;
+      width: 100%;
       transform: scale(1);
       transition: all 500ms ease-in-out;
 
-      &:hover {
+      &:hover,
+      &:focus {
         scale: (1.05);
         box-shadow: 0 0 0.575em 0.0875em rgba(0, 0, 0, 0.8),
           0 0 1em 0.0625em rgba(0, 0, 0, 0.4),
-          0 0 4em 0.0625em rgba(74, 0, 174, 0.8) inset;
+          0 0 1em 0.0625em rgba(255, 42, 109, 0.85) inset;
       }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+
+    &--title {
+      font-family: $ff-heading;
+      padding-bottom: 0.8em;
+      letter-spacing: 0.0625em;
+    }
+  }
+
+  &__buttons {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+    place-items: center;
+  }
+
+  &__social-media {
+    display: flex;
+    align-items: center;
+    margin: 1em 0.5em;
+    padding: 0.4em 1.6em;
+    border: 1px solid $clr-secondary;
+    border-radius: 1.5em;
+    transform: scale(1);
+    transition: all 500ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.05);
+      box-shadow: 0 0 0.125em 0.0625em $clr-secondary inset,
+        0 0 1em 0.125em rgba(5, 217, 232, 0.8), 0 0 4em rgba(255, 42, 109, 0.4);
+      letter-spacing: 0.125em;
+    }
+  }
+
+  &__icon {
+    color: $clr-primary;
+    margin-right: 0.4em;
+
+    &--name {
+      color: $clr-light;
+    }
+  }
+}
+
+@media (min-width: 35em) {
+  .Header {
+    &__logo {
+      &--title {
+        font-size: 2rem;
+      }
+    }
+    &__icon {
+      font-size: 2rem;
     }
   }
 }
